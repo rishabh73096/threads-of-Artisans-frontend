@@ -1,0 +1,90 @@
+.register-left {
+  text-align: center;
+  color: #fff;
+}
+.register-right {
+  background: rgba(122, 121, 121, 0.659);
+  color: white;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 30px;
+  margin-left: 10%;
+  margin-top: 5%;
+  
+}
+.color {
+  font-weight: 600;
+  color: #3931af;
+}
+.color:hover {
+  opacity: 1;
+  font-weight: 600;
+  color: #3931af;
+}
+.register-left .img {
+  width: 500px;
+  height: 400px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.register-left .img:hover {
+  transform: rotate3d();
+}
+.register-left .img1 {
+  margin-top: 13%;
+  width: 400px;
+}
+
+.register-left p {
+  font-weight: lighter;
+  padding: 10%;
+}
+.register .register-form {
+  padding: 7% 8% 5% 8%;
+}
+.btnRegister {
+  float: right;
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 3%;
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+.register .nav-tabs {
+  margin-top: 3%;
+  border: none;
+  background: #0062cc;
+  border-radius: 1.5rem;
+  width: 28%;
+  float: right;
+}
+.register .nav-tabs .nav-link {
+  padding: 2%;
+  height: 34px;
+  font-weight: 600;
+  color: #fff;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover {
+  border: none;
+}
+.register .nav-tabs .nav-link.active {
+  width: 100px;
+  color: #0062cc;
+  border: 2px solid #0062cc;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+.register-heading {
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  font-weight: 600;
+  color: white;
+}

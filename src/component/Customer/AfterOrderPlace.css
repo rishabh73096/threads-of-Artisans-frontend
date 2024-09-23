@@ -1,0 +1,43 @@
+.after-order-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://images.pexels.com/photos/5865384/pexels-photo-5865384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .after-order-content {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .after-order-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+  }
+  
+  .after-order-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #333; /* Dark text color */
+  }
+  
+  .after-order-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* Button text color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+  }
+  
+  .after-order-btn:hover {
+    background-color: #0056b3; /* Darker shade of primary color on hover */
+  }
+  

@@ -1,0 +1,122 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.font-size {
+  font-size: 0.9rem;
+}
+.white {
+  color: white;
+}
+.contact-us {
+  color: #4651edce;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.contact-us-button{
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: #4651edce;
+}
+.contact-us-button:hover{
+  background-color: #0b1aeece;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.navbar-color {
+  background: #4651edce;
+  /* background: rgb(93, 96, 239); */
+}
+.admin-color {
+  background-color: #eee;
+}
+.admin-login {
+  background: rgb(63, 94, 251);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.user-login {
+  color: rgba(46, 111, 214, 0.863);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.show-product-design{
+border-radius: 20px;
+}
+.show-product-design:hover{
+  cursor: pointer;
+
+}
+.btn1{
+  width: 200px;
+  border-radius: 40px;
+  line-height: 30px;
+  
+}
+.btn-card{
+  display: flex;
+  justify-content: center;
+}
+.trend{
+  margin: 20px;
+  font-size: 1.4rem;
+  font-family: roboto;
+  
+}
+.container1 {
+  margin-top: -30px;
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 300px; /* Set container height */
+}
+
+.centered-image {
+  /* Add any additional image styles */
+  max-width: 100%;
+  max-height: 100%;
+}
+.below{
+  width: auto;
+  margin-left: 8%;
+}
+.btn3{
+color: white;
+border: none;
+background-color: #4651edce;
+}
+.btn3:hover{
+background-color: #4651edea;
+}
+.font-size{
+  font-size: 15px;
+}
+.pop-up:hover{
+cursor: pointer;
+
+transform: scale(1.01);
+}
+.pop-up{
+  transition: tranform 0.1s;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.events-card{
+background-color:#4651edea ;
+}
+.events-card:hover{
+  cursor: pointer;
+}
+.hieght{
+  height: 150px;
+}
