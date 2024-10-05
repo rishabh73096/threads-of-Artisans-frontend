@@ -8,7 +8,7 @@ import { URL } from "../URL/URL.jsx"; // Import URL
 function AllContacts() {
     const BackendURL = URL(); // Set the BackendURL
     const [contact, setContact] = useState([]);
-    const URL = `${BackendURL}/admin/Allcontact`; // Use BackendURL
+    const Url = `${BackendURL}/admin/Allcontact`; // Use BackendURL
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ function AllContacts() {
                 return; // Exit the function if no token
             }
             try {
-                const response = await axios.get(URL);
+                const response = await axios.get(Url);
                 setContact(response.data);
             } catch (err) {
                 console.log(err);
@@ -27,7 +27,7 @@ function AllContacts() {
         };
 
         fetchData();
-    }, [URL, navigate]); // Add URL and navigate as dependencies
+    }, [URL, navigate]);
 
     return (
         <>
