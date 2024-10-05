@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import URL from "../URL/URL";
+import { URL } from "./URL/URL";
 
 function Announcement() {
   const [fb, setFb] = useState([]);

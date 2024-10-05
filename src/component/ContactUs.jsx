@@ -3,8 +3,7 @@ import axios from "axios";
 import "../css/index.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import URL from "../URL/URL"
-
+import { URL } from "./URL/URL";
 const ContactUs = () => {
   const [user, setUser] = useState({
     name: "",
