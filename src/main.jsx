@@ -13,7 +13,7 @@ import Layout from "./component/Layout.jsx";
 import ContactUs from "./component/ContactUs.jsx";
 import Admin_Login from "./component/admin/Admin_Login.jsx";
 import AboutUs from "./component/AboutUs.jsx";
-import Services from "./component/Services.jsx";
+
 import ShopKeeper from "./component/shopkeeper/ShopKeeper.jsx";
 import ShopKeeper_Login from "./component/shopkeeper/ShopKeeper_Login.jsx";
 import Customer from "./component/Customer/Customer.jsx";
@@ -54,7 +54,6 @@ const router = createBrowserRouter(
         <Route path="/admin_login" element={<Admin_Login />} />
         <Route path="/shopkeeper" element={<ShopKeeper />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/Services" element={<Services />} />
         <Route path="/Shopkeeper_login" element={<ShopKeeper_Login />} />
         <Route path="/Customer" element={<Customer />} />
         <Route path="/Customer_login" element={<Customer_Login />} />
