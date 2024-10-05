@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { URL } from "../URL/URL";
 
 function Customer_home() {
   const [profile, setProfile] = useState("");
-  const URL = "http://localhost:3400/Customer/Customer_profile";
+  const BackendURL = URL();
+  const Url = `${BackendURL}/Customer/Customer_profile`;
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -24,7 +26,7 @@ function Customer_home() {
       };
 
       try {
-        const response = await axios.get(URL, { params });
+        const response = await axios.get(Url, { params });
         console.log(response.data);
         setProfile(response.data);
       } catch (err) {

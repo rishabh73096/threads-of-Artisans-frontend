@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { URL } from "../URL/URL";
+
 
 function ShopKeeper() {
   const [user, setUser] = useState({
@@ -95,7 +97,8 @@ function ShopKeeper() {
 
     console.log("form data", user);
     try {
-      const url = "http://localhost:3400/shopkeeper/ragister";
+      const BackendURL = URL()
+      const url = `${BackendURL}/shopkeeper/ragister`;
       const response = await axios.post(url, user);
       console.log(response);
    

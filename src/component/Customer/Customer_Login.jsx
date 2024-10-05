@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { URL } from "../URL/URL";
+
 
 function Customer_Login() {
   const [user, setUser] = useState({
@@ -21,7 +23,8 @@ function Customer_Login() {
     e.preventDefault();
     console.log(user);
     try {
-      const url = "http://localhost:3400/CustomerLogin/Customer_login";
+      const BackendURL = URL()
+      const url = `${BackendURL}/CustomerLogin/Customer_login`;
       const response = await axios.post(url, user);
       console.log(response.data);
      
@@ -114,7 +117,7 @@ function Customer_Login() {
                       </button>
 
                       <p className="mt-3 mb-1 fs-6 fs-sm-6 fs-lg-6">
-                       Don't have a Account  <NavLink className="text-light ms-3 ms-sm-4 ms-md-5" to="/customer"> Create Account </NavLink>
+                       Do not have a Account  <NavLink className="text-light ms-3 ms-sm-4 ms-md-5" to="/customer"> Create Account </NavLink>
                       </p>
                     </div>
                   </div>

@@ -1,27 +1,28 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { URL } from "../URL/URL";
 
 function OrderDetail() {
   const token_data = localStorage.getItem("Token_key");
   console.log(token_data);
   const [orders, setOrders] = useState([]);
-  const URL = "http://localhost:3400/shopkeeper/placeorder";
+  const BackendURL = URL()
+  const Url = `${BackendURL}/shopkeeper/placeorder`;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const params = { customerId: token_data };
-        const response = await axios.get(URL, { params });
-        setOrders(response.data); // Set the orders state with the fetched data
+        const response = await axios.get(Url, { params });
+        setOrders(response.data); 
       } catch (err) {
         console.log(err);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array to ensure useEffect runs only once
-
-  // Function to format date in a readable format
+  }, []); 
+  
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;

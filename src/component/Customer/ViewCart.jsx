@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { URL } from "../URL/URL";
+
 const ViewCart = () => {
   const [viewCart, setViewCart] = useState([]);
-  const URL = "http://localhost:3400/Customer/showCartProduct";
+  const BackendURL = URL()
+  const Url = `${BackendURL}/Customer/showCartProduct`;
 
   const token_data = localStorage.getItem("Token_key");
 
@@ -11,7 +14,7 @@ const ViewCart = () => {
     const fetchData = async () => {
       try {
         const params = { Id: token_data };
-        const response = await axios.get(URL, { params });
+        const response = await axios.get(Url, { params });
         setViewCart(response.data);
       } catch (err) {
         console.log(err);

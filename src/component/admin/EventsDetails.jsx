@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Footer from "../Footer.jsx";
 import Admin_Header from "./Admin_Header.jsx";
+import { URL } from "../URL/URL.jsx";
 
 function EventsDetails() {
   const [Events, setEvents] = useState({
@@ -31,7 +32,8 @@ function EventsDetails() {
     });
 
     try {
-      const url = "http://localhost:3400/admin/EventsDetail";
+      const BackendURL = URL();
+      const url = `${BackendURL}/admin/EventsDetail`;
       const response = await axios.post(url, Events);
       console.log(response);
       MySwal.fire({

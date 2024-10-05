@@ -4,6 +4,7 @@ import axios from "axios";
 import "./shopkeeper_home.css"; // Import CSS file
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { URL } from "../URL/URL";
 
 function ShopKeeper_editProfile() {
   const [profile, setProfile] = useState({
@@ -16,8 +17,9 @@ function ShopKeeper_editProfile() {
     state: "",
     specility: "",
   });
-  const URL = "http://localhost:3400/shopkeeper/profile";
-  const EDIT_URL = "http://localhost:3400/shopkeeper/edit_profile";
+  const BackendURL = URL()
+  const Url = `${BackendURL}/shopkeeper/profile`;
+  const EDIT_URL = `${BackendURL}/shopkeeper/edit_profile`;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +31,6 @@ function ShopKeeper_editProfile() {
     console.log(`token data is ${token_data}`);
 
     if (!token_data) {
-      // If no value in token data it means user has not logged in
       navigate("/shopkeeper_login");
     } else {
       const params = {
@@ -37,7 +38,7 @@ function ShopKeeper_editProfile() {
       };
 
       try {
-        const response = await axios.get(URL, { params });
+        const response = await axios.get(Url, { params });
         console.log("name is " + token_data);
         setProfile(response.data);
       } catch (err) {

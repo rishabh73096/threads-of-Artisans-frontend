@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./shopkeeper_home.css";
+import { URL } from "../URL/URL";
 
 function ShopKeeper_home() {
   const [profile, setProfile] = useState("");
-  const URL = "http://localhost:3400/shopkeeper/profile";
+  const BackendURL = URL();
+  const Url = `${BackendURL}shopkeeper/profile`;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +19,7 @@ function ShopKeeper_home() {
     console.log(`token data is ${token_data}`);
 
     if (!token_data) {
-      // If no value in token data it means user has not logged in
+      
       navigate("/shopkeeper_login");
     } else {
       const params = {
@@ -25,7 +27,7 @@ function ShopKeeper_home() {
       };
 
       try {
-        const response = await axios.get(URL, { params });
+        const response = await axios.get(Url, { params });
         console.log("name is " + token_data);
         setProfile(response.data);
       } catch (err) {

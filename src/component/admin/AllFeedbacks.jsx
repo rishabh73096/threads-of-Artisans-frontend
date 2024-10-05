@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as XLSX from "xlsx";
 import Footer from "../Footer";
-import Admin_Header from "../admin/Admin_Header.jsx"
+import Admin_Header from "../admin/Admin_Header.jsx";
+import { URL } from "../URL/URL.jsx"; // Import URL
 
 function AllFeedbacks() {
+  const BackendURL = URL(); // Set the BackendURL
   const [feedbacks, setFeedbacks] = useState([]);
-  const URL = "http://localhost:3400/admin/allFeedback";
+  const API_URL = `${BackendURL}/admin/allFeedback`; // Use BackendURL
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,9 +17,10 @@ function AllFeedbacks() {
       const token_data = localStorage.getItem("Token_key");
       if (!token_data) {
         navigate("/admin_login");
+        return; // Exit the function if no token
       }
       try {
-        const response = await axios.get(URL);
+        const response = await axios.get(API_URL);
         setFeedbacks(response.data);
       } catch (err) {
         console.log(err);
@@ -25,7 +28,7 @@ function AllFeedbacks() {
     };
 
     fetchData();
-  }, []); // Empty dependency array to ensure useEffect runs only once
+  }, [API_URL, navigate]); // Add API_URL and navigate as dependencies
 
   // Function to export data to Excel
   const exportToExcel = () => {

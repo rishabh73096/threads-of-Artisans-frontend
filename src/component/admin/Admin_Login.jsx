@@ -4,7 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import Footer from "../Footer.jsx";
+
+import { URL } from "../URL/URL.jsx";
 
 function Admin_Login() {
   const [user, setUser] = useState({
@@ -38,7 +39,8 @@ function Admin_Login() {
     e.preventDefault();
     console.log(user);
     try {
-      const url = "http://localhost:3400/admin/login";
+      const BackendURL=URL();
+      const url = `${BackendURL}/admin/login`;
       checkEmpty();
       if (Object.keys(error_message).length > 0) {
         setError(error_message);

@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer";
-import Admin_Header from "../admin/Admin_Header.jsx"
+import Admin_Header from "../admin/Admin_Header.jsx";
+import { URL } from "../URL/URL.jsx"; // Import URL
 
 function AllContacts() {
+    const BackendURL = URL(); // Set the BackendURL
     const [contact, setContact] = useState([]);
-    const URL = "http://localhost:3400/admin/Allcontact"; // Provide your API URL here
+    const URL = `${BackendURL}/admin/Allcontact`; // Use BackendURL
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -14,6 +16,7 @@ function AllContacts() {
             const token_data = localStorage.getItem("Token_key");
             if (!token_data) {
                 navigate("/admin_login");
+                return; // Exit the function if no token
             }
             try {
                 const response = await axios.get(URL);
@@ -24,15 +27,15 @@ function AllContacts() {
         };
 
         fetchData();
-    }, []); // Empty dependency array to ensure useEffect runs only once
+    }, [URL, navigate]); // Add URL and navigate as dependencies
 
     return (
         <>
-        <Admin_Header />
+            <Admin_Header />
             <div className="table-responsive m-4">
-            <div className="divider d-flex align-items-center my-4 text-dark">
-          <h4 className="text-center fw-bold mx-3 mb-0"> All Contacts</h4>
-        </div>
+                <div className="divider d-flex align-items-center my-4 text-dark">
+                    <h4 className="text-center fw-bold mx-3 mb-0"> All Contacts</h4>
+                </div>
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -54,7 +57,7 @@ function AllContacts() {
                     </tbody>
                 </table>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { URL } from "../URL/URL";
 
 function ShopKeeper_Login() {
   const [user, setUser] = useState({
@@ -20,9 +21,9 @@ function ShopKeeper_Login() {
     e.preventDefault();
     console.log(user);
     try {
-      const url = "http://localhost:3400/login/Shopkeeperlogin";
+      const BackendURL = URL()
+      const url = `${BackendURL}/login/Shopkeeperlogin`;
       const response = await axios.post(url, user);
-      //console.log(response.data);
 
       if (response.data.code === 200) {
         MySwal.fire({
@@ -111,7 +112,7 @@ function ShopKeeper_Login() {
                       </button>
 
                       <p className="mt-3 mb-1 fs-6 fs-sm-6 fs-lg-6">
-                        Don't have a Account{" "}
+                        Do not have a Account
                         <NavLink
                           className="text-light ms-3 ms-sm-4 ms-md-5"
                           to="/shopkeeper"

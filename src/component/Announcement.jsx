@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import URL from "../URL/URL";
 
 function Announcement() {
   const [fb, setFb] = useState([]);
-  const URL = "http://localhost:3400/Eventsdetails";
+  const BackendURL =URL();
+  const url= "http://localhost:3400/Eventsdetails";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(URL);
-       // console.log(response.data);
+        const response = await axios.get(url);
         console.log(setFb(response.data));
       } catch (err) {
         console.log(err);

@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { URL } from "../URL/URL.jsx";
+
 function Customer() {
   const [Customer, setCustomer] = useState({
     Name: "",
@@ -86,7 +87,7 @@ function Customer() {
 
     try {
       const BackendURL=URL();
-   const url = `${BackendURL}/Customer/Customer_ragister`;
+      const url = `${BackendURL}/Customer/Customer_ragister`;
       checkEmpty();
       if (Object.keys(error_message).length > 0) {
         setError(error_message);

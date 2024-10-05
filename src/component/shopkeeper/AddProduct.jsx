@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
+import { URL } from "../URL/URL";
 
 function AddProduct() {
   const Token_key = localStorage.getItem("Token_key");
   const [pic, setPic] = useState("");
+  
   const [Product, setProduct] = useState({
     Id: Token_key,
     ProductName: "",
@@ -37,7 +39,8 @@ function AddProduct() {
     form_data.append("pic", pic);
 
     try {
-      const url = "http://localhost:3400/shopkeeper/addProduct";
+      const BackendURL = URL()
+      const url = `${BackendURL}/shopkeeper/addProduct`;
       const response = await axios.post(url, form_data);
       console.log(response);
     } catch (err) {

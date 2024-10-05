@@ -3,16 +3,20 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useNavigate } from "react-router-dom";
+import { URL } from "../URL/URL";
+
 function Payment() {
   const [viewCart, setViewCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0); // State to hold the total price
+  const [totalPrice, setTotalPrice] = useState(0); 
   const [address, setAddress] = useState("");
   const [cardno, setCardno] = useState("");
   const [expire, setExpire] = useState("");
   const [cvv, setCvv] = useState("");
   const MySwal = withReactContent(Swal)
-  const URL = "http://localhost:3400/Customer/showCartProduct";
-  const buyURL = "http://localhost:3400/Customer/buyProduct"; //end point for buying
+  const navigate = useNavigate();
+  const BackendURL = URL();
+  const Url = `${BackendURL}/Customer/showCartProduct`;
+  const buyURL = `${BackendURL}/Customer/buyProduct`; 
 
   const token_data = localStorage.getItem("Token_key");
 
@@ -20,10 +24,9 @@ function Payment() {
     const fetchData = async () => {
       try {
         const params = { Id: token_data };
-        const response = await axios.get(URL, { params });
+        const response = await axios.get(Url, { params });
         setViewCart(response.data);
 
-        // Calculate the total price when the cart data is fetched
         const totalPrice = response.data.reduce((acc, cartItem) => {
           return (
             acc +
@@ -39,7 +42,7 @@ function Payment() {
     };
     fetchData();
   }, []);
-  const navigate = useNavigate();
+
   const handleaddressChange = (event) => {
     setAddress(event.target.value);
   };
@@ -56,13 +59,13 @@ function Payment() {
 
   const handleBuyNow = async (e, products) => {
     e.preventDefault();
-    // Check if any required field is empty
+   
     if (!address || !cardno || !expire || !cvv) {
       MySwal.fire({
         title: "Please fill all card details",
         icon: "warning"
       });
-      return; // Stop further execution if any field is empty
+      return; 
     }
     
     try {
@@ -80,7 +83,7 @@ function Payment() {
         expire: expire,
         cvv: cvv
       });
-      // console.log("Order placed successfully:", response.data);
+      console.log("Order placed successfully:", response.data);
     
       navigate("/Customer_home/AfterOrderPlace");
     } catch (error) {
