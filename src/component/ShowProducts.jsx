@@ -4,7 +4,7 @@ import "../css/index.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useNavigate } from "react-router-dom";
-
+import { URL } from "./URL/URL"; 
 function ShowProducts() {
   
   const [showProduct, setShowProduct] = useState([]);
@@ -13,13 +13,14 @@ function ShowProducts() {
     Id: tokenData,
     productItem: { Id: "", productQty: 1 },
   });
-  const URL = "http://localhost:3400/allproductdetails";
-  const URL1 = "http://localhost:3400/Customer/Cart";
+  const BackendURL = URL ()
+  const Url = `${BackendURL}/allproductdetails`;
+  const URL1 = `${BackendURL}/Customer/Cart`;
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(URL);
+        const response = await axios.get(Url);
         setShowProduct(response.data);
       } catch (err) {
         console.log(err);

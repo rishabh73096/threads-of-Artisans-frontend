@@ -7,7 +7,7 @@ import { URL } from "../URL/URL";
 function ShopKeeper_home() {
   const [profile, setProfile] = useState("");
   const BackendURL = URL();
-  const Url = `${BackendURL}shopkeeper/profile`;
+  const Url = `${BackendURL}/shopkeeper/profile`;
   const navigate = useNavigate();
 
   useEffect(() => {
